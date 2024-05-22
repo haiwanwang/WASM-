@@ -130,6 +130,23 @@ distclean: clean
 	@make --no-print-directory -C thirdparty clean
 
 fetch:
+	@git config --global --add safe.directory /sledge
+	@git config --global --add safe.directory /sledge/awsm
+	@git config --global --add safe.directory /sledge/runtime/tests/CMSIS_5_NN
+	@git config --global --add safe.directory /sledge/runtime/tests/TinyEKF
+	@git config --global --add safe.directory /sledge/runtime/tests/gocr
+	@git config --global --add safe.directory /sledge/runtime/tests/sod
+	@git config --global --add safe.directory /sledge/runtime/tests/speechtotext
+	@git config --global --add safe.directory /sledge/ck
+	@git config --global --add safe.directory /sledge/http-parser
+	@git config --global --add safe.directory /sledge/jsmn
+	@git config --global --add safe.directory /sledge/awsm/wasmception
+	@git config --global --add safe.directory /sledge/runtime/tests/CMSIS_5_NN/CMSIS_5
+	@git config --global --add safe.directory /sledge/runtime/tests/speechtotext/thirdparty/pocketsphinx
+	@git config --global --add safe.directory /sledge/runtime/thirdparty/ck
+	@git config --global --add safe.directory /sledge/runtime/tests/speechtotext/thirdparty/sphinxbase
+	@git config --global --add safe.directory /sledge/runtime/thirdparty/http-parser
+	@git config --global --add safe.directory /sledge/runtime/thirdparty/jsmn
 	@git submodule update --init --recursive
 
 init: fetch clean thirdparty runtime
