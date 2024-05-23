@@ -21,7 +21,11 @@ apt-get install -y --no-install-recommends \
 	"libc++-$LLVM_VERSION-dev" \
 	"libc++abi-$LLVM_VERSION-dev" \
 	"libc++1-$LLVM_VERSION"
-
+	
+# Manually install clang and clang++ if not installed by the script
+if ! command -v clang-$LLVM_VERSION &> /dev/null; then
+    apt-get install -y --no-install-recommends "clang-$LLVM_VERSION" "clang++-$LLVM_VERSION"
+fi
 update-alternatives --install /usr/bin/clang clang "/usr/bin/clang-$LLVM_VERSION" 100
 update-alternatives --install /usr/bin/clang++ clang++ "/usr/bin/clang++-$LLVM_VERSION" 100
 update-alternatives --install /usr/bin/llvm-config llvm-config "/usr/bin/llvm-config-$LLVM_VERSION" 100
