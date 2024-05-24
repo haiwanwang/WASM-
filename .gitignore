@@ -65,3 +65,4 @@ Dockerfile
 
 # Others
 runtime/thirdparty/dist/
+perf.data
